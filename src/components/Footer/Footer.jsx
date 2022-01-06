@@ -2,6 +2,8 @@ import style from './Footer.module.scss'
 import marca from '../../assets/marca.png'
 
 function Footer() {
+  const data = new Date()
+
   return (
     <footer className={style.footer}>
       <img
@@ -25,7 +27,11 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a href="https://github.com/ArseniumGX" target="blank">
+            <a
+              className={style.github}
+              href="https://github.com/ArseniumGX"
+              target="blank"
+            >
               <svg
                 className={style.github}
                 role="img"
@@ -70,7 +76,9 @@ function Footer() {
         <span className={style.footer__copy__text}>
           Created by José Pereira Macedo
         </span>
-        <span className={style.footer__copy__text}>ArseniumGX &copy; 2021</span>
+        <span className={style.footer__copy__text}>
+          ArseniumGX &copy; {data.getFullYear()}
+        </span>
       </div>
     </footer>
   )

@@ -1,11 +1,12 @@
-import './config/axios'
+import './config/axios.config'
 import './styles/global.scss'
-import { Signup } from './pages'
+import { Register } from './pages'
+import { Footer } from './components'
 
 function App() {
   return (
     <div className="App">
-      <Signup />
+      <Footer />
     </div>
   )
 }

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Input, Button } from '../../components'
 import axios from 'axios'
-import style from './Signup.module.scss'
+import style from './Register.module.scss'
 
-export function Signup() {
+export function Register() {
   const [user, setUser] = useState({})
 
   const handleFields = (e) => {
@@ -17,7 +17,10 @@ export function Signup() {
 
     await axios
       .post('user', user)
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res)
+        setUser({})
+      })
       .catch((error) => {
         if (error.response.status === 406) alert(error.response.data.message)
         else if (error.response.status === 409)
@@ -27,7 +30,7 @@ export function Signup() {
   }
 
   return (
-    <section className={style.signup}>
+    <section className={style.register}>
       <form onSubmit={sendUser}>
         <Input
           title="Nome Completo"
