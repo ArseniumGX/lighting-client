@@ -1,51 +1,61 @@
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  height: 25rem;
-  width: 14rem;
   padding: 0.6rem;
+  margin: 0 1rem;
   transition: 0.3s ease;
   border: #fff 0.1rem solid;
   color: #252422;
+  cursor: default;
+  min-height: 20rem;
+  width: 12rem;
 
-  img {
-    width: 12rem;
-    margin: 0.6rem 0;
-    cursor: pointer;
-  }
+  &__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  span {
-    display: block;
-    position: relative;
-    padding: 0.2em 0;
-  }
+    img {
+      height: 12rem;
+      width: 8rem;
+      margin: 0.3rem 0;
+      cursor: pointer;
+    }
 
-  &__title {
-    font-size: 0.8em;
-    font-weight: 300;
-    letter-spacing: 0.1rem;
-    inline-size: auto;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s ease;
+    &__title {
+      font-size: 0.8em;
+      font-weight: 300;
+      letter-spacing: 0.1rem;
+      inline-size: auto;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s ease;
 
-    &:hover {
-      text-shadow: 0 -0.7rem 0.1rem #252422;
-      color: #6320ee;
+      &:hover {
+        text-shadow: 0 -0.7rem 0.1rem #252422;
+        color: #6320ee;
+      }
     }
   }
 
-  &__price {
-    font-size: 1.1em;
-    justify-self: stretch;
-  }
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: flex-end;
 
-  &__icon {
-    font-size: 1.5em;
-    cursor: pointer;
-  }
+    &__price {
+      font-size: 1.1em;
+      justify-self: stretch;
+    }
 
+    &__icon {
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+  }
   &:hover {
     border: #ccc5b9 solid 0.1rem;
   }

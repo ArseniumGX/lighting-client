@@ -13,20 +13,24 @@ export function Card(props) {
 
   return (
     <div className={style.card}>
-      <img
-        src={props.cover || ''}
-        alt={props.title || ''}
-        onClick={clickCard}
-      />
-      <span className={style.card__title} onClick={clickCard}>
-        {props.title || ''}
-      </span>
-      <span className={style.card__price} onClick={clickCard}>
-        R$ {props.price || ''}
-      </span>
-      <span className={style.card__icon} onClick={addCart}>
-        <FaCartPlus />
-      </span>
+      <div className={style.card__top}>
+        <img
+          src={props.cover || ''}
+          alt={props.title || ''}
+          onClick={clickCard}
+        />
+        <span className={style.card__top__title} onClick={clickCard}>
+          {props.title || ''}
+        </span>
+      </div>
+      <div className={style.card__bottom}>
+        <span className={style.card__bottom__price} onClick={clickCard}>
+          R$ {props.price || ''}
+        </span>
+        <span className={style.card__bottom__icon} onClick={addCart}>
+          <FaCartPlus />
+        </span>
+      </div>
     </div>
   )
 }

@@ -1,13 +1,26 @@
 import { Card } from '../../components'
+import data from '../../book.json'
+import { useEffect, useState } from 'react'
+import style from './Home.module.scss'
 
 export function Home() {
+  const [books, setBooks] = useState([])
+
+  useEffect(() => {
+    setBooks(data)
+  }, [])
+
   return (
-    <section>
-      <Card
-        title="13 Dias de Meia-Noite"
-        price="44.90"
-        cover="https://ecommerce.konekta.com.br/storage/covers/13-dias-de-meia-noite-87735.jpg"
-      />
+    <section className={style.home}>
+      {books.map((book, index) => (
+        <Card
+          key={index}
+          title={book.title}
+          price={book.value}
+          cover={book.cover}
+          id={index}
+        />
+      ))}
     </section>
   )
 }
