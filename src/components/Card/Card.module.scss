@@ -1,0 +1,52 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 25rem;
+  width: 14rem;
+  padding: 0.6rem;
+  transition: 0.3s ease;
+  border: #fff 0.1rem solid;
+  color: #252422;
+
+  img {
+    width: 12rem;
+    margin: 0.6rem 0;
+    cursor: pointer;
+  }
+
+  span {
+    display: block;
+    position: relative;
+    padding: 0.2em 0;
+  }
+
+  &__title {
+    font-size: 0.8em;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    inline-size: auto;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      text-shadow: 0 -0.7rem 0.1rem #252422;
+      color: #6320ee;
+    }
+  }
+
+  &__price {
+    font-size: 1.1em;
+    justify-self: stretch;
+  }
+
+  &__icon {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  &:hover {
+    border: #ccc5b9 solid 0.1rem;
+  }
+}
