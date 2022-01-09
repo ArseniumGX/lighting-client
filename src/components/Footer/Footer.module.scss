@@ -58,17 +58,16 @@
   }
 
   &__copy {
-    width: 90%;
+    width: 100vw;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 
     &__text {
       color: #fffcf2;
       font-size: 0.9em;
       letter-spacing: 0.2rem;
-      text-align: center;
     }
   }
 }
