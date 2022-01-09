@@ -1,21 +1,17 @@
 import style from './Input.module.scss'
 
-function Input(props) {
-   return (
-      <>
-         <div className={style.container}>
-            <label htmlFor={props.id}>{props.title}</label>
-            <input
-               id={props.id}
-               type={props.type}
-               name={props.name}
-               value={props.value}
-               onChange={props.onChange}
-               required={props.required}
-            />
-         </div>
-      </>
-   )
+export function Input(props) {
+  return (
+    <>
+      <label htmlFor={props.id}>{props.label}</label>
+      <input
+        className={style.input}
+        type={props.type}
+        value={props.value}
+        name={props.name}
+        placeholder={props.placeholder}
+        onChange={props.onChange}
+      />
+    </>
+  )
 }
-
-export { Input }
