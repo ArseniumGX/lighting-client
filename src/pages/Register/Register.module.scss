@@ -1,6 +1,59 @@
 .register {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  form {
+    display: flex;
+    width: 90vw;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__access_info {
+    display: flex;
+    flex-flow: column wrap;
+    border: #ccc5b9 solid 0.1rem;
+    padding: 1.5rem;
+
+    span {
+      font-size: 1.7em;
+      margin-bottom: 1rem;
+    }
+
+    &__info__box {
+      display: flex;
+      flex-flow: column wrap;
+
+      div {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__personal_info {
+    span {
+    }
+    div {
+    }
+
+    &__gender_box {
+      label {
+      }
+
+      div {
+      }
+    }
+  }
+
+  &__buttons {
+  }
+}
+
+@media (min-width: 700px) {
+  .register {
+    height: 100vh;
+  }
 }
