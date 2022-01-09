@@ -56,7 +56,9 @@ export function Login() {
               placeholder="Senha"
               onChange={handleUser}
             />
-            <Button value="Prosseguir" />
+            <div>
+              <Button value="Prosseguir" />
+            </div>
           </form>
         </div>
 
@@ -75,7 +77,9 @@ export function Login() {
               onChange={(e) => setCademail(e.target.value)}
             />
           </div>
-          <Button onClick={makeAccount} value="Cadastrar" />
+          <div>
+            <Button onClick={makeAccount} value="Cadastrar" />
+          </div>
         </div>
       </div>
     </section>
