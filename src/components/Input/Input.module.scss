@@ -9,6 +9,10 @@
   transition: 0.3s all;
   width: inherit;
 
+  &:disabled {
+    background-color: #ccc5b9;
+  }
+
   &:focus {
     box-shadow: 0 0 0.4rem #643173;
   }
