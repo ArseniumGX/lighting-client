@@ -1,0 +1,27 @@
+.login {
+  height: 60vh;
+  display: grid;
+
+  &__header {
+    text-align: center;
+    justify-self: center flex-start;
+  }
+
+  &__frame {
+    justify-self: center;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+
+    &__signin,
+    &__signup {
+      border: 0.1rem #ccc5b9 solid;
+      margin: 0 1rem;
+      padding: 1rem;
+      width: 24rem;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+    }
+  }
+}
