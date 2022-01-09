@@ -1,14 +1,16 @@
 .login {
   height: 60vh;
   display: grid;
+  justify-content: space-around;
 
   &__header {
     text-align: center;
     justify-self: center flex-start;
+    align-self: center;
   }
 
   &__frame {
-    justify-self: center;
+    align-self: center;
     display: flex;
     flex-flow: wrap row;
     justify-content: center;
@@ -16,12 +18,35 @@
     &__signin,
     &__signup {
       border: 0.1rem #ccc5b9 solid;
-      margin: 0 1rem;
+      margin: 1rem 1rem;
       padding: 1rem;
       width: 24rem;
       display: flex;
       justify-content: space-around;
       flex-direction: column;
+
+      hr {
+        margin: 0.8rem;
+        border-radius: 50%;
+      }
     }
+
+    &__signin {
+      form {
+        width: 100%;
+      }
+    }
+
+    &__signup {
+      div {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 840px) {
+  .login {
+    height: 100vh;
   }
 }
