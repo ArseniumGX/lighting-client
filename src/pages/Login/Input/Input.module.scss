@@ -7,8 +7,9 @@
   padding: 0.6rem;
   margin: 0.4rem 0;
   transition: 0.3s all;
+  width: inherit;
 
   &:focus {
-    box-shadow: 0 0 0.4rem #2d44e6;
+    box-shadow: 0 0 0.4rem #643173;
   }
 }
