@@ -1,5 +1,5 @@
 .register {
-  height: 90vh;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,49 +11,84 @@
     justify-content: center;
   }
 
-  &__access_info {
+  &__accessInfo,
+  &__personalInfo {
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
     border: #ccc5b9 solid 0.1rem;
     padding: 1.5rem;
+    margin: 1.5rem;
+    width: 100%;
 
     span {
       font-size: 1.7em;
       margin-bottom: 1rem;
     }
 
-    &__info__box {
+    &__box {
       display: flex;
-      flex-flow: column wrap;
-
-      div {
-        display: flex;
-        flex-direction: row;
-      }
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
     }
   }
 
-  &__personal_info {
-    span {
-    }
+  &__personalInfo {
+    width: 70%;
+
     div {
+      width: 100%;
     }
 
-    &__gender_box {
+    &__genderBox {
+      width: inherit;
+      display: flex;
+      align-items: center;
+
       label {
+        width: 12rem;
       }
 
-      div {
+      select {
+        height: 2.4rem;
+        outline: none;
+        border: none;
+        box-shadow: 0 0 0.2rem #403d39;
+        border-radius: 0.3rem;
+        padding: 0.6rem;
+        margin: 0.4rem 0;
+        transition: 0.3s all;
+        width: inherit;
+        background-color: unset;
+        transition: 0.3s all;
+
+        &:disabled {
+          background-color: #ccc5b9;
+        }
+
+        &:focus {
+          box-shadow: 0 0 0.4rem #643173;
+        }
       }
     }
   }
 
   &__buttons {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem;
+    width: 16rem;
   }
 }
 
 @media (min-width: 700px) {
   .register {
-    height: 100vh;
+    height: auto;
+  }
+
+  .register__accessInfo__box {
+    flex-direction: row;
   }
 }
