@@ -17,3 +17,21 @@
     box-shadow: 0 0 0.4rem #643173;
   }
 }
+
+.topLabel {
+  display: flex;
+  flex-flow: column;
+  width: inherit;
+  margin: 0 1rem;
+}
+
+.leftLabel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: inherit;
+
+  label {
+    width: 12rem;
+  }
+}
