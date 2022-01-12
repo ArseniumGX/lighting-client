@@ -1,31 +1,33 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FaEdit, FaUser } from 'react-icons/fa'
 import style from './Login.module.scss'
 import { Button, Input } from '../../components'
+import { AuthContext } from '../../context/auth'
 
 export function Login() {
-  const [user, setUser] = useState({})
-  const [cademail, setCademail] = useState('')
+  const [credential, setCredential] = useState({})
+  const [email, setEmail] = useState('')
   const navigate = useNavigate()
+  const { login } = useContext(AuthContext)
 
   const handleUser = (e) => {
-    const aux = { ...user }
+    const aux = { ...credential }
 
     aux[e.target.name] = e.target.value
 
-    setUser(aux)
+    setCredential(aux)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    console.log(JSON.stringify(user))
+    login(credential)
+    console.log(JSON.stringify(credential))
   }
 
   const makeAccount = (e) => {
-    if (cademail) {
-      navigate('/register', { state: { email: cademail } })
+    if (email) {
+      navigate('/register', { state: { email } })
     }
   }
 
@@ -44,14 +46,14 @@ export function Login() {
           <form onSubmit={handleSubmit}>
             <Input
               type="email"
-              value={user.email}
+              value={credential.email}
               name="email"
               placeholder="E-mail"
               onChange={handleUser}
             />
             <Input
               type="password"
-              value={user.passpord}
+              value={credential.passpord}
               name="password"
               placeholder="Senha"
               onChange={handleUser}
@@ -71,10 +73,9 @@ export function Login() {
           <div>
             <Input
               type="email"
-              value={cademail}
-              name="cademail"
+              value={email}
               placeholder="E-mail"
-              onChange={(e) => setCademail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>

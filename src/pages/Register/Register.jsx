@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { HiMail, HiUserCircle, HiKey, HiIdentification } from 'react-icons/hi'
 import style from './Register.module.scss'
 import { Button, InputLeftLabel, InputUpperLabel } from '../../components'
+import axios from 'axios'
 
 export function Register() {
   const [user, setUser] = useState({})
@@ -27,7 +28,10 @@ export function Register() {
     }
 
     delete user.emailConfirm
-    console.info(user)
+
+    await axios.post('/user', user)
+
+    navigator('/login', { replace: null })
   }
 
   useEffect(() => {
@@ -133,7 +137,9 @@ export function Register() {
             <select
               name="gender"
               id="gender"
-              onChange={(e) => setUser({ gender: e.target.value })}
+              onChange={(e) =>
+                setUser({ ...user, gender: e.currentTarget.value })
+              }
             >
               <option value=""></option>
               <option value="masculino">Masculino</option>
