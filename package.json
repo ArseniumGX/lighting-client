@@ -1,9 +1,9 @@
 {
-  "name": "bookstore-client",
+  "name": "lighting-client",
   "version": "1.1.0",
   "description": "Este é o frontend de um projeto fullstack de uma aplicação de e-commerce de livros",
   "author": "José Pereira Macedo <https://arseniumgx.herokuapp.com/>",
-  "repository": "git@github.com:ArseniumGX/bookstore-client.git",
+  "repository": "git@github.com:ArseniumGX/lighting-client.git",
   "keywords": [
     "nodejs",
     "javascript",
@@ -11,7 +11,8 @@
     "jsx",
     "sass",
     "axios",
-    "ecommerce"
+    "ecommerce",
+    "context-api"
   ],
   "private": true,
   "license": "MIT",
