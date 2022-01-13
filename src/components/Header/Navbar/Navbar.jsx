@@ -23,7 +23,7 @@ export function Navbar() {
         <li>
           {user ? (
             <NavLink
-              to="/Profile"
+              to="/profile"
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
             >
               Perfil
