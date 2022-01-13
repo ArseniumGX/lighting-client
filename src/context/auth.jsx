@@ -19,12 +19,11 @@ export const AuthProvider = ({ children }) => {
 
     if (response.request) {
       alert('Credeciais inválidas.')
+      return response.request
     }
 
-    const { token, user } = response
-
-    localStorage.setItem('token', token)
-    setUser(user)
+    localStorage.setItem('token', response.token)
+    setUser(response.user)
   }
 
   useEffect(() => {

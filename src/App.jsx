@@ -1,6 +1,6 @@
 import './utils/axios'
 import './styles/global.scss'
-import { Footer, Header, Search } from './components'
+import { Footer, Header } from './components'
 import { Router } from './router'
 import { AuthProvider } from './context/auth'
 
@@ -9,7 +9,6 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Header />
-        <Search />
         <Router />
         <Footer />
       </AuthProvider>
