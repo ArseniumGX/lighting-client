@@ -1,27 +1,58 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../../../context/auth'
 import { GiExitDoor } from 'react-icons/gi'
+import style from './Navbar.module.scss'
 
 export function Navbar() {
   const { user, logout } = useContext(AuthContext)
+  const activeStyle = {
+    backgroundColor: 'white',
+  }
   return (
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink
+            to="/"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Home
+          </NavLink>
         </li>
-        {/* <li>
-          <Link to="/login">Login ou Cadastre-se</Link>
-        </li> */}
         <li>
           {user ? (
-            <Link to="/Profile">Perfil</Link>
+            <NavLink
+              to="/Profile"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              Perfil
+            </NavLink>
           ) : (
-            <Link to="/login">Login ou Cadastre-se</Link>
+            <NavLink
+              to="/login"
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              Login ou Cadastre-se
+            </NavLink>
           )}
         </li>
-        <li>{user && <GiExitDoor onClick={logout} />}</li>
+        <li>
+          <NavLink
+            to="/about"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Sobre
+          </NavLink>
+        </li>
+
+        {user && (
+          <li onClick={logout}>
+            <>
+              <GiExitDoor /> Logout
+            </>
+          </li>
+        )}
       </ul>
     </nav>
   )

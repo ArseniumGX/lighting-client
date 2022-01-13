@@ -1,0 +1,59 @@
+.book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 2rem;
+  width: 100vw;
+  min-width: 480px;
+
+  img {
+    height: 28rem;
+    margin: 1rem;
+  }
+
+  &__content {
+    height: 28rem;
+    margin: 1rem;
+    // min-width: 28rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    h3 {
+      letter-spacing: 0.2rem;
+      text-align: center;
+    }
+
+    p {
+      text-align: justify;
+      padding: 1rem;
+    }
+
+    &__metainfo {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        align-self: center;
+        text-align: center;
+        margin: 1rem 0;
+        font-size: 2em;
+        padding: 0;
+        width: 2rem;
+        height: 2rem;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .book {
+    height: auto;
+    flex-flow: row wrap;
+  }
+}

@@ -1,3 +1,32 @@
 header {
   height: 15vh;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem;
+  background-color: #f5f7f9;
+  border-bottom: 0.1rem solid #ccc5b9;
+  transition: 0.3s all;
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 4px;
+    }
+
+    h1 {
+      font-size: 1em;
+    }
+  }
+
+  .wellcome {
+    text-align: center;
+  }
 }

@@ -19,10 +19,11 @@ export function Login() {
     setCredential(aux)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    login(credential)
-    console.log(JSON.stringify(credential))
+    const bug = await login(credential)
+
+    if (!bug) navigate('/')
   }
 
   const makeAccount = (e) => {
@@ -50,6 +51,7 @@ export function Login() {
               name="email"
               placeholder="E-mail"
               onChange={handleUser}
+              required={true}
             />
             <Input
               type="password"
@@ -57,6 +59,7 @@ export function Login() {
               name="password"
               placeholder="Senha"
               onChange={handleUser}
+              required={true}
             />
             <div>
               <Button value="Prosseguir" />
@@ -76,6 +79,7 @@ export function Login() {
               value={email}
               placeholder="E-mail"
               onChange={(e) => setEmail(e.target.value)}
+              required={true}
             />
           </div>
           <div>
