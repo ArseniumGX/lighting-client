@@ -1,15 +1,21 @@
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FaCartPlus } from 'react-icons/fa'
+import { BsBookmarkHeart } from 'react-icons/bs'
 import style from './Card.module.scss'
+import { AuthContext } from '../../context/auth'
+import axios from 'axios'
 
 export function Card(props) {
   const navigate = useNavigate()
+  const { user } = useContext(AuthContext)
 
   const clickCard = () => {
     navigate('book', { state: { id: props.id } })
   }
 
-  const addCart = () => {}
+  const addWish = async () => {
+    await axios.patch(`user/toggle-book/${props.id}`)
+  }
 
   return (
     <div className={style.card}>
@@ -25,11 +31,13 @@ export function Card(props) {
       </div>
       <div className={style.card__bottom}>
         <span className={style.card__bottom__price} onClick={clickCard}>
-          R$ {props.price || ''}
+          R$ {Number(props.price).toFixed(2) || ''}
         </span>
-        <span className={style.card__bottom__icon} onClick={addCart}>
-          <FaCartPlus />
-        </span>
+        {user && (
+          <span className={style.card__bottom__icon} onClick={addWish}>
+            <BsBookmarkHeart />
+          </span>
+        )}
       </div>
     </div>
   )

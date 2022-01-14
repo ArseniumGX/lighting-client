@@ -48,9 +48,9 @@ export function Navbar() {
 
         {user && (
           <li onClick={logout}>
-            <>
+            <span className={style.logout}>
               <GiExitDoor /> Logout
-            </>
+            </span>
           </li>
         )}
       </ul>

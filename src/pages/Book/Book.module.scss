@@ -2,10 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 2rem;
   width: 100vw;
   min-width: 480px;
+  box-sizing: border-box;
 
   img {
     height: 28rem;
@@ -28,6 +29,7 @@
     p {
       text-align: justify;
       padding: 1rem;
+      font-size: 0.8em;
     }
 
     &__metainfo {

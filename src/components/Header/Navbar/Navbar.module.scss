@@ -1,5 +1,6 @@
 nav {
   height: 100%;
+  cursor: default;
 
   ul {
     height: 100%;
@@ -13,8 +14,13 @@ nav {
       margin: 0 1rem;
 
       a {
+        border-radius: 8px;
         padding: 0.5rem;
         text-decoration: none;
+      }
+
+      .logout {
+        cursor: pointer;
       }
     }
   }

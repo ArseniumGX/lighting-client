@@ -1,14 +1,23 @@
-import { Card } from '../../components'
-import data from '../../book.json'
 import { useEffect, useState } from 'react'
 import style from './Home.module.scss'
+import axios from 'axios'
+import { Card } from '../../components'
 
 export function Home() {
   const [books, setBooks] = useState([])
+  const [mounted, setMounted] = useState(false)
+
+  const loadBooks = async () => {
+    await axios
+      .get('/book')
+      .then((res) => setBooks(res.data))
+      .catch((err) => console.log(err))
+    setMounted(true)
+  }
 
   useEffect(() => {
-    setBooks(data)
-  }, [])
+    loadBooks()
+  }, [mounted])
 
   return (
     <section className={style.home}>
@@ -16,9 +25,9 @@ export function Home() {
         <Card
           key={index}
           title={book.title}
-          price={book.value}
+          price={book.price}
           cover={book.cover}
-          id={index}
+          id={book.id}
         />
       ))}
     </section>

@@ -1,26 +1,27 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { BsBookmarkHeart, BsBookmarkDash } from 'react-icons/bs'
+import { BsBookmarkHeart } from 'react-icons/bs'
 import { useLocation, useNavigate } from 'react-router-dom'
-import data from '../../book.json'
 import style from './Book.module.scss'
 
 export function Book() {
   const location = useLocation()
   const navigate = useNavigate()
   const [book, setBook] = useState({})
+  const [mounted, setMounted] = useState(false)
+  const id = location.state.id
 
   const loadBook = async () => {
-    const id = location.state.id
     if (!id && id !== 0) navigate('/')
-    setBook(data[id])
-
-    // await axios.get(`/book/${id}`).then((res) => setBook(res.data))
+    await axios.get(`/book/${id}`).then((res) => setBook(res.data))
+    setMounted(true)
   }
+
+  const favorit = async () => {}
 
   useEffect(() => {
     loadBook()
-  }, [])
+  }, [mounted])
 
   return (
     <section className={style.book}>
@@ -30,17 +31,16 @@ export function Book() {
         <h3>{book.title}</h3>
         <div>
           <strong>Sinopse</strong>
-          <p>{book.resume}</p>
+          <p>{book.synopsis}</p>
         </div>
 
         <div className={style.book__content__metainfo}>
-          <p>
+          <p onClick={favorit}>
             <BsBookmarkHeart />
-            <BsBookmarkDash />
           </p>
           <span>
             <strong>Preço: </strong>
-            R$ {Number(book.value).toFixed(2)}
+            R$ {Number(book.price).toFixed(2)}
           </span>
           <span>
             <strong>Autor(a): </strong>
@@ -52,7 +52,7 @@ export function Book() {
           </span>
           <span>
             <strong>Lançamento: </strong>
-            {book.release}
+            {book.year}
           </span>
           <span>
             <strong>Páginas: </strong>
